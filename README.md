@@ -10,7 +10,7 @@
 
 ## **About the project** 🔎
 
-A web application for creating and keeping track of your everyday errands. Similar to the [note-taking application](https://github.com/KennethOnuorah/Javascript-Notes) that I made a while ago, but with a slight modifications.
+A web application for creating and keeping track of your everyday errands. Similar to the [note-taking application](https://github.com/KennethOnuorah/Javascript-Notes) that I made a while ago, but with slight modifications.
 
 Created with:
 
