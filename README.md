@@ -1,16 +1,16 @@
 <p align="center">
-  <img src="readme_logo.png" width="302" height="222">
+  <img src="readme_logo.png" width="340" height="222">
 </p>
 
 <p align="center">
-  A errand-tracking web application for all your everyday needs.
+  An errand-tracking web application for all your everyday needs.
 </p>
 
 ---
 
 ## About the project 🔎
 
-A web application that makes managing your errands a whole lot easier. Create compact and customizable notes to help keep track of your everyday needs.
+A web application that makes managing your errands a whole lot easier.
 
 Created with:
 
@@ -33,5 +33,5 @@ Created with:
 ---
 
 <p align="center">
-  <img src="readme_preview.png" width="700" height="400">
+  <img src="readme_preview.png" width="720" height="400">
 </p>
