@@ -3,10 +3,10 @@ import { useState } from 'react'
 import { FaTimesCircle } from 'react-icons/fa'
 import { BiEdit, BiCheckSquare } from 'react-icons/bi'
 
-const Task = ({ task, onDelete, onChangeColor, onToggleCompletion, onToggleEditMode }) => {
-  const [titleEdit, setTitleEdit] = useState(task.title)
-  const [descriptionEdit, setDescriptionEdit] = useState(task.description)
-  const [colorEdit, setColorEdit] = useState(task.backgroundColor)
+const Errand = ({ errand, onDelete, onChangeColor, onToggleCompletion, onToggleEditMode }) => {
+  const [titleEdit, setTitleEdit] = useState(errand.title)
+  const [descriptionEdit, setDescriptionEdit] = useState(errand.description)
+  const [colorEdit, setColorEdit] = useState(errand.backgroundColor)
   const backgroundColors = [
     "#3B3B3B", //Dark gray (default)
     "#691307", //Dark red
@@ -19,62 +19,62 @@ const Task = ({ task, onDelete, onChangeColor, onToggleCompletion, onToggleEditM
     "#380066", //Dark purple
     "#66004b" //Dark magenta
   ]
-  let currentColor = task.backgroundColor
+  let currentColor = errand.backgroundColor
   return (
     <div 
-      id={`${task.id}`} 
-      className="task"
+      id={`${errand.id}`} 
+      className="errand"
       onClick={() => {
-        if(task.editMode){
+        if(errand.editMode){
           currentColor = backgroundColors.indexOf(currentColor) != backgroundColors.length - 1 ? backgroundColors[backgroundColors.indexOf(currentColor) + 1] : backgroundColors[0]
           setColorEdit(currentColor)
-          onChangeColor(task.id, currentColor)
+          onChangeColor(errand.id, currentColor)
         }
       }}
-      onDoubleClick={() => onToggleCompletion(task.id, task.taskCompleted)} 
+      onDoubleClick={() => onToggleCompletion(errand.id, errand.errandCompleted)} 
       style={{
         backgroundColor: currentColor,
-        opacity: task.taskCompleted ? '0.5' : '1',
+        opacity: errand.errandCompleted ? '0.5' : '1',
       }}>
       <h2>
-        <div className='taskTopSection'>
+        <div className='errandTopSection'>
           <h3
-            className='taskTitle'
-            contentEditable={task.editMode ? true : false} 
+            className='errandTitle'
+            contentEditable={errand.editMode ? true : false} 
             onKeyDown={(e) => {
               if(e.key === "Enter") 
                 e.preventDefault()
             }}
             onInput={(e) => setTitleEdit(e.target.innerText)} 
             onClick={(e) => e.stopPropagation()}
-            onDoubleClick={(e) => task.editMode ? e.stopPropagation() : e}>{task.title}
+            onDoubleClick={(e) => errand.editMode ? e.stopPropagation() : e}>{errand.title}
           </h3>
-          <div className='taskTools'> {
-            !task.editMode ? 
+          <div className='errandTools'> {
+            !errand.editMode ? 
               <BiEdit 
-                className='editTaskBtn'
+                className='editErrandBtn'
                 onClick={async (e) => {
-                  if(task.taskCompleted)
+                  if(errand.errandCompleted)
                     return
                   e.stopPropagation()
-                  await onToggleEditMode(task.id)
+                  await onToggleEditMode(errand.id)
                 }} 
                 onDoubleClick={(e) => e.stopPropagation()} 
                 color={'#72b027'}/> : 
               <BiCheckSquare 
                 className='confirmEditBtn'
                 onClick={async (e) => {
-                  if(task.taskCompleted)
+                  if(errand.errandCompleted)
                     return
                   e.stopPropagation()
-                  await onToggleEditMode(task.id, true, titleEdit, descriptionEdit, colorEdit)
+                  await onToggleEditMode(errand.id, true, titleEdit, descriptionEdit, colorEdit)
                 }} 
                 onDoubleClick={(e) => e.stopPropagation()}  
                 color={'#72b027'}/>
               }
             <FaTimesCircle 
-              className='closeTaskBtn' 
-              onClick={() => onDelete(task.id)}
+              className='closeErrandBtn' 
+              onClick={() => onDelete(errand.id)}
               onDoubleClick={(e) => e.stopPropagation()} 
               cursor={'pointer'} 
               color={'#b51e16'}/>
@@ -82,22 +82,22 @@ const Task = ({ task, onDelete, onChangeColor, onToggleCompletion, onToggleEditM
         </div>
       </h2>
       <p
-        className='taskDescription'
-        contentEditable={task.editMode ? true : false}
+        className='errandDescription'
+        contentEditable={errand.editMode ? true : false}
         onKeyDown={(e) => {
           if(e.key === "Enter") 
             e.preventDefault()
         }}
         onInput={(e) => setDescriptionEdit(e.target.innerText)} 
         onClick={(e) => e.stopPropagation()}
-        onDoubleClick={(e) => task.editMode && e.stopPropagation()}
-        style={{textDecoration: task.taskCompleted ? 'line-through' : 'none'}}>
-        {task.description}
+        onDoubleClick={(e) => errand.editMode && e.stopPropagation()}
+        style={{textDecoration: errand.errandCompleted ? 'line-through' : 'none'}}>
+        {errand.description}
       </p>
       <p>
-        <em>{task.time}</em>
+        <em>{errand.time}</em>
       </p>
     </div>
   )
 }
-export default Task
+export default Errand

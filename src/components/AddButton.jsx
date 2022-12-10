@@ -1,6 +1,6 @@
-const AddButton = ({ onCreateNewTask }) => {
+const AddButton = ({ onCreateNewErrand }) => {
   return (
-    <button className="createTaskBtn" onClick={onCreateNewTask}>+</button>
+    <button className="createErrandBtn" onClick={onCreateNewErrand}>+</button>
   )
 }
 export default AddButton

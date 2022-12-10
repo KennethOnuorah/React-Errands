@@ -8,17 +8,17 @@
 
 ---
 
-## About the project 🔎
+## **About the project** 🔎
 
-A web application for creating and keeping track of your everyday errands.
+A web application for creating and keeping track of your everyday errands. Similar to the [note-taking application](https://github.com/KennethOnuorah/Javascript-Notes) that I made a while ago, but with a slight modifications.
 
 Created with:
 
 - React.js (JSX)
 
-**Project development**: 11/6/2022 - 12/8/2022.
+**Project development**: 11/6/2022 - 12/8/2022
 
-## Features 📦️
+## **Features** 📦️
 
 - Ability to create & discard errands
 - Editing/saving
@@ -28,10 +28,10 @@ Created with:
 - Total errand counter
 - Searching
 
-## Preview 👁️
+## **Preview** 👁️
 
 ---
 
 <p align="center">
-  <img src="readme_preview.png" width="720" height="400">
+  <img src="readme_preview.png" width="576" height="320">
 </p>

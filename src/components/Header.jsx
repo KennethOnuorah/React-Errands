@@ -1,20 +1,15 @@
-import TaskSearchBar from "./TaskSearchBar"
+import ErrandSearchBar from "./ErrandSearchBar"
 import AddButton from "./AddButton"
 
-const Header = ({ title, taskCount, onCreateNewTask, setSearchEntry }) => {
+const Header = ({ title, errandCount, onCreateNewErrand, setSearchEntry }) => {
   return ( 
     <header className="header">
       <em>
-        <a 
-          href="https://github.com/KennethOnuorah/React-Tasks" 
-          target={'_blank'} 
-          title={'Visit repository'}>
-          <h1 className="appTitle">{taskCount} {title}</h1>
-        </a>
+        <h1 className="errandCounter">{errandCount} {title}</h1>
       </em>
       <div className="headerTools">
-        <TaskSearchBar setSearchEntry={setSearchEntry}/>
-        <AddButton onCreateNewTask={onCreateNewTask}/>
+        <ErrandSearchBar setSearchEntry={setSearchEntry}/>
+        <AddButton onCreateNewErrand={onCreateNewErrand}/>
       </div>
     </header>
   )

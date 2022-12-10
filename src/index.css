@@ -39,12 +39,9 @@ a:has(h1){
 .appHeader{
   margin-bottom: 10px;
 }
-.appTitle{
-  cursor: pointer;
+.errandCounter{
+  /* cursor: pointer; */
   transition: color 0.2s;
-}
-.appTitle:hover{
-  color: rgba(188, 188, 188, 0.87);
 }
 
 .headerTools{
@@ -53,7 +50,16 @@ a:has(h1){
   gap: 1rem;
 }
 
-.taskSearchBar{
+.footer{
+  font-weight: bold;
+  text-align: center;
+}
+.footerLine{
+  border: 1px solid rgb(59, 59, 59);
+  border-radius: 50%;
+}
+
+.errandSearchBar{
   height: 50px;
   width: 400px;
   padding-left: 20px;
@@ -69,22 +75,22 @@ a:has(h1){
   user-select: none;
 }
 
-.tasksSection {
+.errandsSection {
   display: flex;
 	justify-content: center;
   flex-flow: row wrap;
-  height: 550px;
+  height: 475px;
   overflow: auto;
 }
 
-.noTaskPrompt {
+.noErrandPrompt {
   user-select: none;
   font-style: italic;
   opacity: 0.5;
   text-shadow: 0px 4px 4px rgba(10, 10, 10, 0.361);
 }
 
-.createTaskBtn {
+.createErrandBtn {
   flex-shrink: 0;
   user-select: none;
   height: 50px; width: 50px;
@@ -97,19 +103,19 @@ a:has(h1){
   transition: box-shadow 0.1s;
 }
 
-.taskSearchBar:hover, .createTaskBtn:hover, .taskSearchBar:focus{
+.errandSearchBar:hover, .createErrandBtn:hover, .errandSearchBar:focus{
   border: none;
   box-shadow: 0px 4px 6px 4px rgba(10, 10, 10, 0.332);
 }
 
-.createTaskBtn:active, .editTaskBtn:active, .confirmEditBtn:active, .closeTaskBtn:active {
+.createErrandBtn:active, .createErrandBtn:active, .confirmEditBtn:active, .closeErrandBtn:active {
   animation: btnPushDown 0.1s forwards;
 }
-.createTaskBtn:not(:active), .editTaskBtn:not(:active), .confirmEditBtn:not(:active), .closeTaskBtn:not(:active) {
+.createErrandBtn:not(:active), .editErrandBtn:not(:active), .confirmEditBtn:not(:active), .closeErrandBtn:not(:active) {
   animation: btnPushUp 0.1s forwards;
 }
 
-.task{
+.errand{
 	background-color: #3B3B3B;
 	border-radius: 15px;
   word-wrap: break-word;
@@ -123,31 +129,31 @@ a:has(h1){
               opacity 0.1s, 
               background-color 0.2s;
 }
-.task:hover{
+.errand:hover{
   box-shadow: 0px 8px 8px 4px rgba(10, 10, 10, 0.161);
 }
-.task h3, .task p {
+.errand h3, .errand p {
   outline: none;
   user-select: none;
 }
-.taskTopSection {
+.errandTopSection {
   display: flex;
   justify-content: space-between;
 }
-.taskTopSection h3 {
+.errandTopSection h3 {
   margin-top: 0px;
   margin-bottom: 0px;
   margin-right: 15px;
 }
-.taskTools {
+.errandTools {
   display: flex;
   flex-direction: row;
   gap: 0.25rem;
 }
-.editTaskBtn, .confirmEditBtn {
+.editErrandBtn, .confirmEditBtn {
   cursor: pointer;
 }
-.closeTaskBtn {
+.closeErrandBtn {
   display: flex;
   flex-shrink: 0;
   border-radius: 50px;

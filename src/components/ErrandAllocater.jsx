@@ -1,7 +1,7 @@
-import Task from "./Task"
+import Errand from "./Errand"
 
-const TaskAllocater = ({ 
-  myTasks, 
+const ErrandAllocater = ({ 
+  myErrands, 
   searchEntry, 
   onDelete, 
   onChangeColor, 
@@ -10,10 +10,10 @@ const TaskAllocater = ({
   return (
     <>
       {
-        myTasks.map((t) => (t.title.toLowerCase().includes(searchEntry.toLowerCase()) || searchEntry == "") && 
-        <Task 
-          key={t.id} 
-          task={t}
+        myErrands.map((errand) => (errand.title.toLowerCase().includes(searchEntry.toLowerCase()) || searchEntry == "") && 
+        <Errand 
+          key={errand.id} 
+          errand={errand}
           onDelete={onDelete} 
           onChangeColor={onChangeColor}
           onToggleCompletion={onToggleCompletion} 
@@ -23,4 +23,4 @@ const TaskAllocater = ({
     </>
   )
 }
-export default TaskAllocater
+export default ErrandAllocater

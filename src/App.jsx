@@ -2,78 +2,79 @@ import { useEffect, useState } from "react"
 
 import moment from "moment/moment"
 import Header from "./components/Header"
-import TaskAllocater from "./components/TaskAllocater"
+import Footer from "./components/Footer"
+import ErrandAllocater from "./components/ErrandAllocater"
 
 function App() {
-	const [myTasks, setMyTasks] = useState([])
+	const [myErrands, setMyErrands] = useState([])
 	const [searchEntry, setSearchEntry] = useState("")
 
 	useEffect(() => {
-		const getTasks = async() => {
-			const tasksFromServer = await fetchTasks()
-			setMyTasks(tasksFromServer.reverse())
+		const getErrands = async() => {
+			const errandsFromServer = await fetchErrands()
+			setMyErrands(errandsFromServer.reverse())
 		}
-		getTasks()
+		getErrands()
 	}, [])
 
-	const fetchTasks = async() => {
-		const res = await fetch("http://localhost:5000/tasks")
+	const fetchErrands = async() => {
+		const res = await fetch("http://localhost:5000/errands")
 		const data = await res.json()
 		return data
 	}
 
-	const createNewTask = async() => {
-		const newTask = {
+	const createNewErrand = async() => {
+		const newErrand = {
 			title: "Title",
 			description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
 			time: `${moment().format('lll')}`,
 			backgroundColor: "#3B3B3B",
 			editMode: false,
-			taskCompleted: false
+			errandCompleted: false
 		}
-		const res = await fetch(`http://localhost:5000/tasks`, {
+		const res = await fetch(`http://localhost:5000/errands`, {
 			method: "POST",
 			headers: {
 				"Content-type": "application/json"
 			},
-			body: JSON.stringify(newTask)
+			body: JSON.stringify(newErrand)
 		})
 		const data = await res.json()
-		setMyTasks([data, ...myTasks])
+		setMyErrands([data, ...myErrands])
 	}
 
-	const deleteTask = async(id) => {
-		await fetch(`http://localhost:5000/tasks/${id}`, {
+	const deleteErrand = async(id) => {
+		await fetch(`http://localhost:5000/errands/${id}`, {
 			method: "DELETE"
 		})
-		setMyTasks(myTasks.filter((task) => task.id != id))
+		setMyErrands(myErrands.filter((errand) => errand.id != id))
 	}
 
 	const changeColor = (id, color) => {
-		setMyTasks(myTasks.map((task) => task.id === id ? {
-		...task, 
+		setMyErrands(myErrands.map((errand) => errand.id === id ? {
+		...errand, 
 		backgroundColor: color,
-		} : task))
+		} : errand))
 	}
 
 	const toggleCompleteStatus = async(id, completed) => {
-		const res = await fetch(`http://localhost:5000/tasks/${id}`, {
+		const res = await fetch(`http://localhost:5000/errands/${id}`, {
 			method: "PATCH",
 			headers: {
 				"Content-type": "application/json"
 			},
 			body: JSON.stringify({
-				taskCompleted: !completed
+				errandCompleted: !completed
 			})
 		})
-		setMyTasks(myTasks.map((task) => task.id === id && !task.editMode ? {
-		...task, 
-		taskCompleted: !task.taskCompleted
-		} : task))
+		setMyErrands(myErrands.map((errand) => errand.id === id && !errand.editMode ? {
+		...errand, 
+		errandCompleted: !errand.errandCompleted
+		} : errand))
 	}
 
 	const toggleEditMode = async(id, isSaving=false, titleEdit="", descEdit="", colorEdit="") => {
-		const res = isSaving && await fetch(`http://localhost:5000/tasks/${id}`, {
+		const res = isSaving && await fetch(`http://localhost:5000/errands/${id}`, {
 			method: "PATCH",
 			headers: {
 				"Content-type": "application/json"
@@ -85,38 +86,39 @@ function App() {
 			})
 		})
 		const updated = isSaving && await res.json()
-		setMyTasks(myTasks.map((task) => task.id === id ? {
-			...task, 
-			editMode: !task.editMode, 
-			title: isSaving ? updated.title : task.title,
-			description: isSaving ? updated.description : task.description,
-		} : task))
+		setMyErrands(myErrands.map((errand) => errand.id === id ? {
+			...errand, 
+			editMode: !errand.editMode, 
+			title: isSaving ? updated.title : errand.title,
+			description: isSaving ? updated.description : errand.description,
+		} : errand))
 	}
 
 	return (
 		<>
 			<div className="appHeader">
 				<Header 
-					title={`Errand${myTasks.length != 1 ? `s`: ``}`} 
-					taskCount={myTasks.length}
+					title={`Errand${myErrands.length != 1 ? `s`: ``}`} 
+					errandCount={myErrands.length}
 					setSearchEntry={setSearchEntry}
-					onCreateNewTask={createNewTask}
+					onCreateNewErrand={createNewErrand}
 				/>
 			</div>
-			<div className="tasksSection">
+			<div className="errandsSection">
 				{
-					myTasks.length != 0 ? 
-					<TaskAllocater 
-						myTasks={myTasks}
+					myErrands.length != 0 ? 
+					<ErrandAllocater 
+						myErrands={myErrands}
 						searchEntry={searchEntry}
-						onDelete={deleteTask} 
+						onDelete={deleteErrand} 
 						onChangeColor={changeColor}
 						onToggleCompletion={toggleCompleteStatus} 
 						onToggleEditMode={toggleEditMode}
 					/> :
-					<h2 className="noTaskPrompt">All caught up! 👍</h2>
+					<h2 className="noErrandPrompt">All caught up! 👍</h2>
 				}
 			</div>
+			<Footer/>
 		</>
 	)
 }
