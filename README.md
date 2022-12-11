@@ -30,8 +30,4 @@ Created with:
 
 ## **Preview** 👁️
 
----
-
-<p align="center">
-  <img src="readme_preview.png" width="576" height="320">
-</p>
+![readme_preview](readme_preview.png)

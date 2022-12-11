@@ -1,8 +1,10 @@
 import { useEffect, useState } from "react"
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'
 
 import moment from "moment/moment"
 import Header from "./components/Header"
 import Footer from "./components/Footer"
+import AboutPage from "./components/AboutPage"
 import ErrandAllocater from "./components/ErrandAllocater"
 
 function App() {
@@ -118,6 +120,9 @@ function App() {
 					<h2 className="noErrandPrompt">All caught up! 👍</h2>
 				}
 			</div>
+			<Routes>
+				<Route path="/about" element={<AboutPage/>}/>
+			</Routes>
 			<Footer/>
 		</>
 	)

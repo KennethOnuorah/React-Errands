@@ -1,5 +1,4 @@
 {
-  "homepage": "https://kennethonuorah.github.io/React-Errands/",
   "name": "react-errands",
   "private": true,
   "version": "0.0.0",
@@ -10,7 +9,7 @@
     "dev": "vite",
     "build": "vite build",
     "preview": "vite preview",
-    "server": "json-server --watch db.json --port 5000"
+    "server": "json-server --watch db/db.json --port 5000"
   },
   "dependencies": {
     "json-server": "^0.17.1",

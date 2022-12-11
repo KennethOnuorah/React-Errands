@@ -40,7 +40,6 @@ a:has(h1){
   margin-bottom: 10px;
 }
 .errandCounter{
-  /* cursor: pointer; */
   transition: color 0.2s;
 }
 
