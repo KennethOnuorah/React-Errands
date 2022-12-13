@@ -10,23 +10,25 @@
 
 ## **About the project** 🔎
 
-A web application for creating and keeping track of your everyday errands. Similar to the [note-taking application](https://github.com/KennethOnuorah/Javascript-Notes) that I made a while ago, but with slight modifications.
+A web application for creating and keeping track of your everyday errands. Similar to the [note-taking application](https://github.com/KennethOnuorah/Javascript-Notes) that I made a while ago, but with some modifications.
 
 Created with:
 
 - React.js (JSX)
+- CSS
+- JSON-Server
 
 **Project development**: 11/6/2022 - 12/8/2022
 
 ## **Features** 📦️
 
-- Ability to create & discard errands
+- Creating/discarding errands
 - Editing/saving
-- Color changing
-- Completed errands indicated by strike-through (double-click)
+- Errand color setting
+- Indicate completed errands w/ strike-through (double-click)
 - Time and dates
 - Total errand counter
-- Searching
+- Search functionality
 
 ## **Preview** 👁️
 

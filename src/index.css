@@ -25,7 +25,7 @@
   background: rgb(59, 59, 59);
 }
 
-h1 {
+h1:not(.appVersion) {
   font-size: 3.2em;
   text-align: center;
   line-height: 1.1;
@@ -158,6 +158,13 @@ a:has(h1){
   border-radius: 50px;
   cursor: pointer;
   box-shadow: 0px 2px 4px 1px rgba(10, 10, 10, 0.161);
+}
+
+.aboutSection{
+  padding-left: 10px;
+}
+.appVersion{
+  cursor: pointer;
 }
 
 @keyframes btnPushDown {

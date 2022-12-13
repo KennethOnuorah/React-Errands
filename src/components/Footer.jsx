@@ -5,7 +5,7 @@ const Footer = () => {
     <footer className="footer">
       <hr className="footerLine"></hr>
       <p>Copyright &copy; 2022</p>
-      <Link to="/about">About</Link>
+      <Link to="/React-Errands/about">About</Link>
     </footer>
   )
 }

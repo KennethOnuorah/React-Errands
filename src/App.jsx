@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react"
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'
+import { Route, Routes } from 'react-router-dom'
 
 import moment from "moment/moment"
 import Header from "./components/Header"
@@ -98,32 +98,36 @@ function App() {
 
 	return (
 		<>
-			<div className="appHeader">
-				<Header 
-					title={`Errand${myErrands.length != 1 ? `s`: ``}`} 
-					errandCount={myErrands.length}
-					setSearchEntry={setSearchEntry}
-					onCreateNewErrand={createNewErrand}
-				/>
-			</div>
-			<div className="errandsSection">
-				{
-					myErrands.length != 0 ? 
-					<ErrandAllocater 
-						myErrands={myErrands}
-						searchEntry={searchEntry}
-						onDelete={deleteErrand} 
-						onChangeColor={changeColor}
-						onToggleCompletion={toggleCompleteStatus} 
-						onToggleEditMode={toggleEditMode}
-					/> :
-					<h2 className="noErrandPrompt">All caught up! 👍</h2>
-				}
-			</div>
 			<Routes>
-				<Route path="/about" element={<AboutPage/>}/>
+				<Route path="/React-Errands/" exact element={
+					<>
+						<div className="appHeader">
+							<Header 
+								title={`Errand${myErrands.length != 1 ? `s`: ``}`} 
+								errandCount={myErrands.length}
+								setSearchEntry={setSearchEntry}
+								onCreateNewErrand={createNewErrand}
+							/>
+						</div>
+						<div className="errandsSection">
+							{
+								myErrands.length != 0 ? 
+								<ErrandAllocater 
+									myErrands={myErrands}
+									searchEntry={searchEntry}
+									onDelete={deleteErrand} 
+									onChangeColor={changeColor}
+									onToggleCompletion={toggleCompleteStatus} 
+									onToggleEditMode={toggleEditMode}
+								/> :
+								<h2 className="noErrandPrompt">All caught up! 👍</h2>
+							}
+						</div>
+						<Footer/>
+					</>
+				}/>
+				<Route path="/React-Errands/about" element={<AboutPage/>}/>
 			</Routes>
-			<Footer/>
 		</>
 	)
 }
