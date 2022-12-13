@@ -22,13 +22,37 @@ Created with:
 
 ## **Features** 📦️
 
+This project includes:
+
 - Creating/discarding errands
 - Editing/saving
 - Errand color setting
-- Indicate completed errands w/ strike-through (double-click)
+- Indication of completed errands w/ strike-through
 - Time and dates
 - Total errand counter
 - Search functionality
+
+## **How to Use** 🛠️
+
+Clone repository and install
+
+```bash
+git clone https://github.com/KennethOnuorah/React-Errands.git
+npm i
+cd React-Errands
+```
+
+Run the server
+
+```bash
+npm run server
+```
+
+Run dev
+
+```bash
+npm run dev
+```
 
 ## **Preview** 👁️
 
