@@ -38,8 +38,8 @@ Clone repository and install
 
 ```bash
 git clone https://github.com/KennethOnuorah/React-Errands.git
-npm i
 cd React-Errands
+npm i
 ```
 
 Run the server
